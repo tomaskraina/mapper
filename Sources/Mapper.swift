@@ -17,59 +17,6 @@ public struct Mapper {
         self.JSON = JSON
     }
 
-    // MARK: - T
-
-    /**
-     Get a typed value from the given key in the source data
-
-     - parameter key: The key to retrieve from the source data, can be an empty string to return the entire
-                      data set
-
-     - throws: `MapperError` if the value for the given key doesn't exist or cannot be converted to T
-
-     - returns: The value for the given key, if it can be converted to the expected type T
-     */
-    @warn_unused_result
-    public func from<T>(field: String) throws -> T {
-        if let value = self.JSONFromField(field) as? T {
-            return value
-        }
-
-        throw MapperError()
-    }
-
-    /**
-     Get an optional typed value from the given key in the source data
-
-     - parameter key: The key to retrieve from the source data, can be an empty string to return the entire
-                      data set
-
-     - returns: The value for the given key, if it can be converted to the expected type T otherwise nil
-     */
-    @warn_unused_result
-    public func optionalFrom<T>(field: String) -> T? {
-        return try? self.from(field)
-    }
-
-    /**
-     Get an optional value from the given keys and source data. This returns the first non-nil value produced
-     in order based on the array of fields
-
-     - parameter fields: The array of fields to check from the source data.
-
-     - returns: The first non-nil value to be produced from the array of fields, or nil if none exist
-    */
-    @warn_unused_result
-    public func optionalFrom<T>(fields: [String]) -> T? {
-        for field in fields {
-            if let value: T = try? self.from(field) {
-                return value
-            }
-        }
-
-        return nil
-    }
-
     // MARK: - T: RawRepresentable
 
     /**
@@ -296,6 +243,27 @@ public struct Mapper {
     public func optionalFrom<T: Convertible where T == T.ConvertedType>(field: String) -> [T]? {
         return try? self.from(field)
     }
+
+//    public func from<U: Convertible, T: Convertible
+//        where U == U.ConvertedType, T == T.ConvertedType>(field: String) throws -> [U: T]
+//    {
+//        guard let data = self.JSONFromField(field) as? NSDictionary else {
+//            throw MapperError()
+//        }
+//
+//        var result = [U: T]()
+//        for (key, value) in data {
+//            result[try U.fromMap(key)] = try T.fromMap(value)
+//        }
+//
+//        return result
+//    }
+//
+//    public func optionalFrom<U: Convertible, T: Convertible
+//        where U == U.ConvertedType, T == T.ConvertedType>(field: String) -> [U: T]?
+//    {
+//        return try? self.from(field)
+//    }
 
     /**
      Get an optional value from the given keys and source data. This returns the first non-nil value produced

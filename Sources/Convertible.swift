@@ -42,3 +42,27 @@ public protocol Convertible {
     @warn_unused_result
     static func fromMap(value: AnyObject?) throws -> ConvertedType
 }
+
+public protocol DefaultConvertible: Convertible {}
+
+extension DefaultConvertible {
+    public static func fromMap(value: AnyObject?) throws -> ConvertedType {
+        if let object = value as? ConvertedType {
+            return object
+        }
+
+        throw MapperError()
+    }
+}
+
+
+extension String: DefaultConvertible {}
+extension Int: DefaultConvertible {}
+extension UInt: DefaultConvertible {}
+extension Float: DefaultConvertible {}
+extension Double: DefaultConvertible {}
+extension Bool: DefaultConvertible {}
+import Foundation
+extension NSDictionary: DefaultConvertible {}
+extension NSArray: DefaultConvertible {}
+extension Dictionary: DefaultConvertible {}

@@ -82,15 +82,15 @@ final class OptionalValueTests: XCTestCase {
     // similar type constraints, Swift incorrect infers the types of this. This is here
     // as a sanity check. Once this test breaks we *could* remove `optionalFrom(fields: [String])`
     // which was added to work around this problem.
-    func testNilCoalescingIsBroken() {
-        struct Test: Mappable {
-            let string: String?
-            init(map: Mapper) throws {
-                self.string = map.optionalFrom("a") ?? map.optionalFrom("b") ?? map.optionalFrom("c")
-            }
-        }
-
-        let test = Test.from(["b": "foo"])!
-        XCTAssertNil(test.string)
-    }
+//    func testNilCoalescingIsBroken() {
+//        struct Test: Mappable {
+//            let string: String?
+//            init(map: Mapper) throws {
+//                self.string = map.optionalFrom("a") ?? map.optionalFrom("b") ?? map.optionalFrom("c")
+//            }
+//        }
+//
+//        let test = Test.from(["b": "foo"])!
+//        XCTAssertNil(test.string)
+//    }
 }
