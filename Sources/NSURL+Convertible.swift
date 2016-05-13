@@ -16,11 +16,12 @@ extension NSURL: Convertible {
      */
     @warn_unused_result
     public static func fromMap(value: AnyObject?) throws -> NSURL {
-        guard let string = value as? String else {
+        guard let string = value as? String,
+            let URLString = string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet()) else {
             throw MapperError.ConvertibleError(value: value, type: String.self)
         }
 
-        if let URL = NSURL(string: string) {
+        if let URL = NSURL(string: URLString) {
             return URL
         }
 
