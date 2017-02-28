@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C8093151E65A032000DE920 /* GoOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8093131E659FD0000DE920 /* GoOutTests.swift */; };
 		C201748E1BD5509D00E4FE18 /* Mapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20174831BD5509D00E4FE18 /* Mapper.framework */; };
 		C20586EC1CDEAD9900658A67 /* DefaultConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20586EB1CDEAD9900658A67 /* DefaultConvertible.swift */; };
 		C207F6E41D7F286700EBCC74 /* ConvertibleValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207F6DB1D7F286700EBCC74 /* ConvertibleValueTests.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C8093131E659FD0000DE920 /* GoOutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoOutTests.swift; sourceTree = "<group>"; };
 		C20174831BD5509D00E4FE18 /* Mapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C201748D1BD5509D00E4FE18 /* MapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20586EB1CDEAD9900658A67 /* DefaultConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultConvertible.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C207F6DB1D7F286700EBCC74 /* ConvertibleValueTests.swift */,
+				9C8093131E659FD0000DE920 /* GoOutTests.swift */,
 				C207F6DC1D7F286700EBCC74 /* CustomTransformationTests.swift */,
 				C207F6DD1D7F286700EBCC74 /* ErrorTests.swift */,
 				C207F6DE1D7F286700EBCC74 /* InitializerTests.swift */,
@@ -260,6 +263,7 @@
 				C207F6E81D7F286700EBCC74 /* MappableValueTests.swift in Sources */,
 				C207F6EA1D7F286700EBCC74 /* OptionalValueTests.swift in Sources */,
 				C2BBD0C81DD430F400CB9F4E /* JSONSerializationIntegrationTests.swift in Sources */,
+				9C8093151E65A032000DE920 /* GoOutTests.swift in Sources */,
 				C207F6E91D7F286700EBCC74 /* NormalValueTests.swift in Sources */,
 				C207F6E61D7F286700EBCC74 /* ErrorTests.swift in Sources */,
 			);
